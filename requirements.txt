@@ -1,0 +1,7 @@
+ # apache-airflow==2.7.2
+ pandas==2.2.3
+ numpy==2.2.1
+ PyMuPDF==1.25.1
+ flask>=2.2.0
+ werkzeug>=2.2.0
+ 
