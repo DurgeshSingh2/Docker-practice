@@ -9,11 +9,11 @@
 
 **Enable Docker to start on boot:**
 
-`sudo systemctl enable docker
+`sudo systemctl enable docker`
 
 **Stop Docker**:
 
-`sudo systemctl stop docker
+`sudo systemctl stop docker`
 
 **Disable Docker from starting on boot:**
 
@@ -36,3 +36,15 @@ you can get the container name from the `docker ps -a` command.
 for removing images you will have to first remove any container attached to it. 
 
 `docker rmi <image_name>`
+
+**Run Docker and expose to a particular port**
+
+`docker run -p <port>:<port> <image_name>`
+
+example: `docker run -p 5000:5000 <image_name>`
+where '-p' is being used to publish the containers port to host port. it maps a port on host machine to port on the docker machine allowing access to container service from host. 
+
+**Stop a Docker Container**
+
+`docker stop <container_id>`
+
