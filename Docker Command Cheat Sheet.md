@@ -48,3 +48,9 @@ where '-p' is being used to publish the containers port to host port. it maps a 
 
 `docker stop <container_id>`
 
+
+**Start a Docker Container and Interact with its Terminal:**
+
+`docker run -it <image_name> /bin/bash`
+
+The `-it` flag allows you to open an interactive terminal inside the container.
