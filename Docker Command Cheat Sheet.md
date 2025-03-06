@@ -61,3 +61,25 @@ The `-it` flag allows you to open an interactive terminal inside the container.
 `docker exec -it <container_id> /bin/bash`
 
 The `exec` command allows you to run commands in a running container. The `-it` flag opens an interactive terminal inside the container.
+
+
+**Build Docker Image with Build-time Arguments:**
+
+You can pass build-time variables to the Docker image using the `--build-arg` flag.
+
+```sh
+docker build --build-arg <ARG_NAME>=<value> -t <image_name> .
+```
+
+Example:
+
+```sh
+docker build --build-arg VERSION=1.0 -t myapp:1.0 .
+```
+
+In your Dockerfile, you can use the `ARG` instruction to define the variable:
+
+```Dockerfile
+ARG VERSION
+RUN echo "Building version $VERSION"
+```
