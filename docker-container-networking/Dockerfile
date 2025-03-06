@@ -3,7 +3,7 @@ FROM python:3.11
 WORKDIR /app
 
 # environment variable
-ENV postgre_connect="Change_Me_to_Contianer_Ip"
+ENV postgre_connect="172.17.0.2"
 ENV postgre_user="postgres"
 ENV postgre_password="admin"
 
