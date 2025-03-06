@@ -1,0 +1,31 @@
+FROM python:3.11
+
+WORKDIR /app
+
+# VOLUME app/data : to be used in case of anonymous volume
+
+COPY . . 
+
+# environment variable
+ENV docker_val=1
+# run time argument 
+ARG docker_arg=2
+# build time argument 
+ARG d_b_t_arg=3 
+
+CMD [ "python3", "dock_vol.py"]
+
+# docker command for passing build argument
+
+# docker build --build-arg d_b_t_arg=4 --build-arg d_b_t_arg -t docker-args-n-env-var .
+
+
+
+# docker command for passing enviornment variable
+#           docker run -e docker_val=5 docker-args-n-env-var
+
+
+
+# docker command for passing run time argument
+#           docker run -it -e docker_val=5 --name env_arg_con env_arg_img python3 dock_vol.py 4 6
+# in above command 4,6 are run time arguments passed to dock_vol.p

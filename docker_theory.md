@@ -805,3 +805,82 @@ Just a quick note: If you don't always want to copy and use the full path, you c
 
 ```Windows: -v "%cd%":/app```
 
+## Docker Environment Variables
+
+Environment variables in Docker allow you to pass configuration settings and other information to containers at runtime. They can be set in the Dockerfile, during the build process, or when running a container.
+
+### Setting Environment Variables in a Dockerfile
+
+You can set environment variables in a Dockerfile using the `ENV` instruction.
+
+#### Example
+
+```Dockerfile
+# Set environment variables
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+```
+
+### Setting Environment Variables at Runtime
+
+You can also set environment variables when running a container using the `-e` flag with the `docker run` command.
+
+#### Example
+
+```sh
+docker run -e APP_ENV=production -e APP_DEBUG=false my_image
+```
+
+## Build Time Arguments
+
+Build time arguments allow you to pass variables to the Docker build process. These arguments can be used to customize the build process and are defined using the `ARG` instruction in the Dockerfile.
+
+### Defining Build Arguments in a Dockerfile
+
+You can define build arguments using the `ARG` instruction.
+
+#### Example
+
+```Dockerfile
+# Define build arguments
+ARG APP_VERSION=1.0.0
+
+# Use the build argument
+RUN echo "Building version $APP_VERSION"
+```
+
+### Passing Build Arguments
+
+You can pass build arguments to the `docker build` command using the `--build-arg` flag.
+
+#### Example
+
+```sh
+docker build --build-arg APP_VERSION=2.0.0 -t my_image .
+```
+
+## Passing Arguments While Running a Container
+
+You can pass arguments to a container at runtime using the `docker run` command. These arguments can be used to customize the behavior of the container.
+
+### Using Command Line Arguments
+
+You can pass command line arguments to the container's entry point or command.
+
+#### Example
+
+```sh
+docker run my_image --arg1 value1 --arg2 value2
+```
+
+### Using Environment Variables
+
+You can also pass arguments as environment variables using the `-e` flag.
+
+#### Example
+
+```sh
+docker run -e ARG1=value1 -e ARG2=value2 my_image
+```
+
+By using environment variables, build time arguments, and runtime arguments, you can create flexible and configurable Docker containers that can adapt to different environments and use cases.
